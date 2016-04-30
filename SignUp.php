@@ -101,5 +101,6 @@ float: right;
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
+    <p><?php echo $_SESSION["Error"] + $_SESSION["formError"];?></p>
 </body>
 </html>
