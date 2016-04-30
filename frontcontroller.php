@@ -38,12 +38,21 @@ $lastName =  $_POST['LastName'];
 $email =  $_POST['Email'];
 
 
- if(register($userName, $password, $firstName, $lastName, $email)){
-     echo "works";
- }
- else{
-     echo "wrong";
- }
+if (isset($userName) && isset($password)&& isset($firstName)&& isset($lastName)&& isset($email)){
+    if(register($userName, $password, $firstName, $lastName, $email)){
+        $_SESSION["FirstName"] = $firstName;
+        header("Location: index.php");
+    }
+    else{
+        $_SESSION["Error"] = "Try again";
+        header("Location: SignUp.php");
+    }
+    
+}
+else{
+    $_SESSION["formError"]=" Try again 2";
+    header("Location: SignUp.php");
+}
 
  
  
